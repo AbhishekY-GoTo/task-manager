@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly To-Do</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1>Weekly To-Do</h1>
+                <div class="header-actions">
+                    <button id="darkModeToggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+                    <button id="prevWeekBtn" class="nav-btn">← Prev</button>
+                    <button id="todayBtn" class="today-btn">Today</button>
+                    <button id="nextWeekBtn" class="nav-btn">Next →</button>
+                </div>
+            </div>
+            <div class="filter-section">
+                <span class="filter-label">View:</span>
+                <div class="filter-buttons">
+                    <button id="filterAllDays" class="filter-btn active">All Days</button>
+                    <button id="filterWeekdays" class="filter-btn">Weekdays Only</button>
+                </div>
+            </div>
+            <div class="week-info">
+                <p id="weekRange"></p>
+                <div class="stats">
+                    <span id="weekStats"></span>
+                </div>
+            </div>
+        </header>
+
+        <div class="week-view" id="weekView">
+            <!-- Day columns will be generated here -->
+        </div>
+    </div>
+
+    <!-- Modal for viewing task details -->
+    <div class="modal" id="viewTaskModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Task Details</h2>
+                <button class="close-btn" id="closeViewModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="view-task-title" id="viewTaskTitle"></div>
+                <div class="view-task-description" id="viewTaskDescription"></div>
+                <div class="view-task-meta" id="viewTaskMeta"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="toggleTaskStatusBtn" class="status-toggle-btn"></button>
+                <button id="closeViewBtn" class="cancel-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for adding tasks -->
+    <div class="modal" id="taskModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Task</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Task name"
+                    autocomplete="off"
+                >
+                <textarea
+                    id="taskDescription"
+                    placeholder="Description (optional)"
+                    rows="3"
+                ></textarea>
+                <input
+                    type="date"
+                    id="taskDueDate"
+                    placeholder="Due date (optional)"
+                >
+                <select id="taskPriority">
+                    <option value="low">Low Priority</option>
+                    <option value="medium" selected>Medium Priority</option>
+                    <option value="high">High Priority</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelBtn" class="cancel-btn">Cancel</button>
+                <button id="addTaskBtn" class="add-btn">Add Task</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
